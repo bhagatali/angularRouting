@@ -44,36 +44,36 @@
                     <!-- I am going to use custom directives here. -->
 
                     <!--The first thing to remember
-                      -- about custom directives in AngularJS is the concept of normalizations.
-                      -- A custom directive defined in the JavaScript is defined using CAMEL CASE.
-                      -- AngularJS sees the camel case and converts it as a string seperated by -
-                      -- in the HTML(view). The - are added when the upper case letters are 
-                      -- added -->
+                         about custom directives in AngularJS is the concept of normalizations.
+                         A custom directive defined in the JavaScript is defined using CAMEL CASE.
+                         AngularJS sees the camel case and converts it as a string seperated by -
+                         in the HTML(view). The - are added when the upper case letters are 
+                         added -->
 
                     <!-- A custom directive defined in the javascript (either as part of the 
-                      -- app.js or as a seperate directives.js file) can be used over here in 4 
-                      -- different ways. What can be allowed or restricted  in HTML is defined in 
-                      -- the "restrict"property of the object that is returned by the custom      
-                      -- directive(see JS).
-                         1) Element -- Use 'E' in the restrict property.
-                         2) Attribute -- Use 'A' in the restrict property.
-                         3) Class -- Use 'C' in the restrict property.
-                         4) Comment -- Use 'M' in the restrict property.
-                      -- A combination of these 4 letters can be used. By default E and A are ON.
-                      -- If class and comment has to be used, they need to be turned ON by 
-                      -- specifying C and M in the restrict property. -->
+                         app.js or as a seperate directives.js file) can be used over here in 4 
+                         different ways. What can be allowed or restricted  in HTML is defined in 
+                         the "restrict"property of the object that is returned by the custom      
+                         directive(see JS).
+                         1) Element - Use 'E' in the restrict property.
+                         2) Attribute - Use 'A' in the restrict property.
+                         3) Class - Use 'C' in the restrict property.
+                         4) Comment - Use 'M' in the restrict property.
+                         A combination of these 4 letters can be used. By default E and A are ON.
+                         If class and comment has to be used, they need to be turned ON by 
+                         specifying C and M in the restrict property. -->
 
                     <!-- When using custom directives, the scope that is defined in the 
-                      -- controller that is the parent of the custom directive gets applied
-                      -- to the directive. As a result, any scope variable in the myController
-                      -- will become available within searchResult.html. This can lead to 
-                      -- undesirable results if a large application is using custom directives
-                      -- and if any of the child modifies the scope, the parent scope in 
-                      -- myController is changed. To restrict this, we create a wall by using
-                      -- the "scope" property in directive.js. This wall can then be poked to 
-                      -- allow any parent scope variable from myController to be accessed by the
-                      -- searchResult.html. The scope is done in directive.js and then they are
-                      -- normalized and used as attributes to the custom directives used here.-->                  
+                         controller that is the parent of the custom directive gets applied
+                         to the directive. As a result, any scope variable in the myController
+                         will become available within searchResult.html. This can lead to 
+                         undesirable results if a large application is using custom directives
+                         and if any of the child modifies the scope, the parent scope in 
+                         myController is changed. To restrict this, we create a wall by using
+                         the "scope" property in directive.js. This wall can then be poked to 
+                         allow any parent scope variable from myController to be accessed by the
+                         searchResult.html. The scope is done in directive.js and then they are
+                         normalized and used as attributes to the custom directives used here.-->                  
                     <search-result-text bank-name="{{bank.name}}"
                                         bank-motto="{{bank.motto}}"
                                         bank-message="{{bank.message}}">
@@ -82,17 +82,17 @@
                     <!-- Object binding by using "=". This is two way binding.-->
                     
                     <!-- The entire bank object needs to be passed. Using {{}} would 
-                      -- mean that we are passing the "text of the object". That doesn't
-                      -- make sense, so for interpolation, we are just passing along the
-                      --  entire bank object without the actual {{}}.-->
+                         mean that we are passing the "text of the object". That doesn't
+                         make sense, so for interpolation, we are just passing along the
+                          entire bank object without the actual {{}}.-->
                     
                     <!-- The custom directive searcResultObject also expects a function called
-                      -- formattedAddressFunction to be passed to it as function. The function
-                      -- being passed is the ohWhatFun defined in the myController. The parameter
-                      -- someBank passed to the ohWhatFun function here is just a place holder
-                      -- that indicates the number of paremeters to be passed. The mapping on 
-                      -- the parameter will be completed in the directive template using an 
-                      -- object map -->
+                         formattedAddressFunction to be passed to it as function. The function
+                         being passed is the ohWhatFun defined in the myController. The parameter
+                         someBank passed to the ohWhatFun function here is just a place holder
+                         that indicates the number of paremeters to be passed. The mapping on 
+                         the parameter will be completed in the directive template using an 
+                         object map -->
                     
                     <div search-result-object bank-object="bank"
                                               formatted-address-function="ohWhatFun(someBank)">
