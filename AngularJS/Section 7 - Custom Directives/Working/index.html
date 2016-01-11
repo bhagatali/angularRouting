@@ -95,7 +95,8 @@
                          object map -->
                     
                     <div search-result-object bank-object="bank"
-                                              formatted-address-function="ohWhatFun(someBank)">
+                                              formatted-address-function="ohWhatFun(someBank)"
+                         ng-repeat="bank in bankPlanet">
                     </div>
                     
                     <!-- Text binding by using "@". This is one way binding.-->
@@ -106,6 +107,8 @@
                     <!-- directive: search-result-text -->
                 </div> 
             </div>
+            
+            <hr />
             
             <div ng-view></div>   
     </body>
