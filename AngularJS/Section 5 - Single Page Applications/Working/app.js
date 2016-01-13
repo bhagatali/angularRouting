@@ -23,7 +23,9 @@ myApp.controller('myController',['$scope',
 								 '$timeout',
 								 '$http',
                                  '$location',
-								 function ($scope, $filter, $timeout, $http,$location){
+                                 '$cacheFactory',
+								 function ($scope, $filter, $timeout, 
+                                           $http,$location,$cacheFactory){
 	$scope.name = 'Ali';
 	$scope.formattedName = $filter('uppercase')($scope.name);
     $scope.handle = '';
@@ -78,7 +80,7 @@ myApp.controller('myController',['$scope',
     }, 9000);
 
 
-    $http.get('http://172.25.8.233:8080/itp/api/customers/')
+    $http.get('http://172.25.8.233:8080/itp/api/customers/',{cache:true})
     	 .success(function(result){
     	 	$scope.customers = result;
     	 })
